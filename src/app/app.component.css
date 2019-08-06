@@ -1,0 +1,15 @@
+.main-class{
+   border: 1em;
+}
+.main-h{
+  margin-left: 3em;
+  color:red
+}
+.main-b{
+  margin-left: 6em;
+
+}
+main {
+  width: 80%;
+  margin: 2rem auto;
+}

@@ -1,0 +1,51 @@
+
+
+
+  <form class="example-form">
+ <div>
+  <mat-form-field class="example-full-width">
+    <input  #cid matInput placeholder="Enter Fun code"  (change)="setMatnr(cid.value)" value=" {{matnr}}">
+  </mat-form-field>
+  </div>
+  <div class="example-button-row">
+    <button mat-raised-button color= "primary"  (click)="loadPim(cid.value)" >load Pim</button>
+ </div>
+
+</form>
+
+
+     <div>
+        Existing Pictures on PIM for Material Number {{matnr}}
+        <br>
+      </div>
+         <table style="width:10%">
+
+        <tr>
+          <th>Pictures</th>
+          <th>Drawings</th>
+        </tr>
+        <tr>
+        <td>
+        <ul>
+            <li *ngFor="let item of imgPic; let i = index" [attr.data-index]="i">
+                 {{resValPic[i]}}
+                <img src ="{{item}}" alt="{{item}}"   style="width:104px;height:104px"  >
+
+            </li>
+        </ul>
+      </td>
+      <td>
+      <ul>
+          <li *ngFor="let item of imgDraw; let i = index" [attr.data-index]="i">
+               {{resValDraw[i]}}
+              <img src ="{{item}}" alt="{{item}}"   style="width:104px;height:104px"  >
+
+          </li>
+      </ul>
+    </td>
+    </tr>
+    </table>
+
+
+
+

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Commerceblob</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<script>
+  var app = angular.module('fupload', []);
+
+  app.controller('autoRefreshController', function($scope, $interval) {
+
+    var count = 0;// this is default cont value.
+    
+    $scope.displayMsg = "This is auto Refreshed " + count + " counter time.";
+
+    // The  $interval function is used to auto refresh the count div.
+    var auto = $interval(function() {
+      $scope.displayMsg = "This is auto Refreshed " + count + " counter time.";
+      count++;
+    }, 100);
+
+    //This is use the custon method are used to stopTimer the timer when click on stop button.
+    $scope.stopTimer = function() {
+      if (angular.isDefined(auto)) {
+        $interval.cancel(auto);
+        auto = 0;
+      }
+    };
+  });
+</script>
+
+
+
+<body>
+  <app-root></app-root>
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
+</html>
