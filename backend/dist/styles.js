@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\daten\nodejs\angular\commerceblob\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
-module.exports = __webpack_require__(/*! C:\daten\nodejs\angular\commerceblob\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\daten\B2B_V2\tools\commerceblob\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
+module.exports = __webpack_require__(/*! C:\daten\B2B_V2\tools\commerceblob\src\styles.css */"./src/styles.css");
 
 
 /***/ })

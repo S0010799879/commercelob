@@ -362,7 +362,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var URL = 'http://fbs179g:3000/test/api/up';
+var URL = 'http://localhost:3000/test/api/up';
 var FuploadComponent = /** @class */ (function () {
     function FuploadComponent(sanitizer, http, comService) {
         this.sanitizer = sanitizer;
@@ -386,8 +386,8 @@ var FuploadComponent = /** @class */ (function () {
         this.f_162 = '';
         this.f_208 = '';
         this.f_500 = '';
-        this.f_http = ' //fbs179g:3000/test/api/down?image=';
-        this.f_http_ = '//fbs179g:3000/test/api/check?image=';
+        this.f_http = ' //localhost:3000/test/api/down?image=';
+        this.f_http_ = '//localhost:3000/test/api/check?image=';
         this.uploader = new ng2_file_upload_ng2_file_upload__WEBPACK_IMPORTED_MODULE_2__["FileUploader"]({ url: URL, itemAlias: 'photo' });
     }
     FuploadComponent.prototype.ngOnInit = function () {
@@ -414,7 +414,6 @@ var FuploadComponent = /** @class */ (function () {
             file.withCredentials = false;
             _this.fileName = file.file.name;
             var url1 = (window.URL) ? window.URL.createObjectURL(file._file) : window.webkitURL.createObjectURL(file._file);
-            console.log(url1);
             _this.localImageUrl = url1;
             _this._initFname(_this.fileName);
             console.log('==>' + _this.fileName.replace('.jpg', '').replace('picture', ''));
@@ -602,7 +601,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  border-collapse: separate;\r\n  border-spacing: 0.2em;\r\n}\r\n\r\nth,td {\r\n  padding: 0.2em 0.5em;\r\n  border-radius: 0.1em;\r\n}\r\n\r\nthead th {\r\n  background-color: #ffebe6;\r\n  color: #c32e04;\r\n}\r\n\r\ntd {\r\n  font-style:italic;\r\n  text-align: right;\r\n  box-shadow: inset 1px 3px 5px -3px rgba(0,0,0,0.5);\r\n}\r\n\r\ntd:empty{\r\n  box-shadow: none;\r\n}\r\n"
+module.exports = "table {\r\n  border-collapse: separate;\r\n  border-spacing: 0.2em;\r\n}\r\n\r\nth,td {\r\n  padding: 0.2em 0.5em;\r\n  border-radius: 0.1em;\r\n}\r\n\r\nthead th {\r\n  background-color: #ffebe6;\r\n  color: #c32e04;\r\n}\r\n\r\ntd {\r\n  font-style:italic;\r\n  text-align: right;\r\n  box-shadow: inset 1px 3px 5px -3px rgba(0,0,0,0.5);\r\n}\r\n\r\ntd:empty{\r\n  box-shadow: none;\r\n}\r\n\r\n.example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n\r\n.example-button-row button,\r\n.example-button-row a {\r\n  margin-right: 8px;\r\n}"
 
 /***/ }),
 
@@ -613,7 +612,7 @@ module.exports = "table {\r\n  border-collapse: separate;\r\n  border-spacing: 0
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n     <div>\n        Existing Pictures on PIM for Material Number {{matnr}}\n        <br>\n       </div>\n         <table style=\"width:10%\">\n\n        <tr>\n          <th>Pictures</th>\n          <th>Drawings</th>\n        </tr>\n        <tr>\n        <td>\n        <ul>\n            <li *ngFor=\"let item of imgPic; let i = index\" [attr.data-index]=\"i\">\n                 {{resValPic[i]}}\n                <img src =\"{{item}}\" alt=\"{{item}}\"   style=\"width:104px;height:104px\"  >\n\n            </li>\n        </ul>\n      </td>\n      <td>\n      <ul>\n          <li *ngFor=\"let item of imgDraw; let i = index\" [attr.data-index]=\"i\">\n               {{resValDraw[i]}}\n              <img src =\"{{item}}\" alt=\"{{item}}\"   style=\"width:104px;height:104px\"  >\n\n          </li>\n      </ul>\n    </td>\n    </tr>\n    </table>\n\n\n\n\n"
+module.exports = "\n\n\n  <form class=\"example-form\">\n <div>\n  <mat-form-field class=\"example-full-width\">\n    <input  #cid matInput placeholder=\"Enter Fun code\"  (change)=\"setMatnr(cid.value)\" value=\" {{matnr}}\">\n  </mat-form-field>\n  </div>\n  <div class=\"example-button-row\">\n    <button mat-raised-button color= \"primary\"  (click)=\"loadPim(cid.value)\" >load Pim</button>\n </div>\n\n</form>\n\n\n     <div>\n        Existing Pictures on PIM for Material Number {{matnr}}\n        <br>\n      </div>\n         <table style=\"width:10%\">\n\n        <tr>\n          <th>Pictures</th>\n          <th>Drawings</th>\n        </tr>\n        <tr>\n        <td>\n        <ul>\n            <li *ngFor=\"let item of imgPic; let i = index\" [attr.data-index]=\"i\">\n                 {{resValPic[i]}}\n                <img src =\"{{item}}\" alt=\"{{item}}\"   style=\"width:104px;height:104px\"  >\n\n            </li>\n        </ul>\n      </td>\n      <td>\n      <ul>\n          <li *ngFor=\"let item of imgDraw; let i = index\" [attr.data-index]=\"i\">\n               {{resValDraw[i]}}\n              <img src =\"{{item}}\" alt=\"{{item}}\"   style=\"width:104px;height:104px\"  >\n\n          </li>\n      </ul>\n    </td>\n    </tr>\n    </table>\n\n\n\n\n"
 
 /***/ }),
 
@@ -663,6 +662,10 @@ var PimComponent = /** @class */ (function () {
             // alert( 'FunNr subscripbe' + funNr);
         });
         this.matnr = this.comService.getMatFun();
+        this._setPimUrl();
+    };
+    PimComponent.prototype.loadPim = function (matnr) {
+        this.matnr = matnr.trim();
         this._setPimUrl();
     };
     PimComponent.prototype.ngOnDestroy = function () {
@@ -885,7 +888,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\daten\nodejs\angular\commerceblob\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\daten\B2B_V2\tools\commerceblob\src\main.ts */"./src/main.ts");
 
 
 /***/ })

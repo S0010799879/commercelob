@@ -1,0 +1,25 @@
+
+https://backoffice.ct075nck5-franketec1-p1-public.model-t.cc.commerce.ondemand.com/odata2webservices/InboundFrankeProductThumbnail/Products?$filter=catalogVersion/integrationKey%20eq%20%27Staged%7CDefault%27&$skip=2&$top=3&$expand=thumbnail
+
+Authorization: Basic admin J&)zs{7;wgkV5L=et+&68t{~8
+
+###
+
+
+GET https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global&article=101.0303.641&type=10030&res=10091&usage=em
+
+###
+@partnr = 101.0303.641
+GET https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global&article={{partnr}}&type=10030&res=10091&usage=em
+
+
+###
+
+
+
+@catalog = "B2B-FBSProductCatalog"
+https://backoffice.ct075nck5-franketec1-p1-public.model-t.cc.commerce.ondemand.com/odata2webservices/InboundProduct/Catalogs
+
+###
+https://backoffice.ct075nck5-franketec1-p1-public.model-t.cc.commerce.ondemand.com/odata2webservices/InboundFrankeProductThumbnail
+Authorization: Basic admin J&)zs{7;wgkV5L=et+&68t{~8

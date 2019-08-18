@@ -5,11 +5,6 @@
 file_pim  =new File("..\\out\\pim_load.txt")
 
 
-
-
-
-
-
  file_log = new File('..\\out\\log.txt')
  file_notfoundlog = new File('..\\out\\notlog.txt')
 
@@ -27,7 +22,9 @@ def file_gefunden = 0
 
 def actline=0
 file_pim.eachLine { String matnr ->
+
   actline++
+  println(">>")
   println("file ${actline}  von / ${counter }  / gefunden ${file_gefunden}")
 
 
@@ -95,6 +92,7 @@ file_pim.eachLine { String matnr ->
 //		  println("${f.name} gelöscht")
 	//	  x=null
 	 }
+   println("<<")
 }
 
 def file_counter(File f){

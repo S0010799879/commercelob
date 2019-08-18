@@ -1,20 +1,37 @@
 
 
-
-  <form class="example-form">
- <div>
-  <mat-form-field class="example-full-width">
-    <input  #cid matInput placeholder="Enter Fun code"  (change)="setMatnr(cid.value)" value=" {{matnr}}">
-  </mat-form-field>
+<form class="example-form" #f="ngForm" (ngSubmit)="_submit(f)"  >
+ <div  class="form-group">
+    <mat-form-field class="example-full-width">
+         <input type="text" required [(ngModel)]="matnr"
+                          minlength="3"
+                          maxLenfth="12"
+                          pattern= "[0-9]{3}.[0-9]{4}\.[0-9]{3}"
+                          name="smatnr"
+                          id=  "ssmatnr"
+                          #smatnr="ngModel"
+                          matInput placeholder="Enter Fun code" >
+    </mat-form-field>
   </div>
   <div class="example-button-row">
-    <button mat-raised-button color= "primary"  (click)="loadPim(cid.value)" >load Pim</button>
+     <button  mat-raised-button color= "primary" *ngIf="smatnr.valid"    (click)="loadPim(f)" >load Pim</button>
  </div>
+ <div class="example-button-row">
+     <button  mat-raised-button color= "primary" *ngIf="smatnr.valid"    (click)="_check_Pim(f)" >Check Pim</button>
+ </div>
+<br>
+<br>
+  <div class= "alert alert-danger" *ngIf="smatnr.touched && !smatnr.valid">
+   <div *ngIf="smatnr.errors.required">Material is required</div>
+   <div *ngIf="smatnr.errors.minlength">Material have to have at leaset 3 is required</div>
+   <div *ngIf="smatnr.errors.maxlength">Material have to have not more then 12 Characters</div>
+   <div *ngIf="smatnr.errors.pattern">Material does not match pattern</div>
+  </div>
+<br>
+<br>
 
 </form>
-
-
-     <div>
+       <div>
         Existing Pictures on PIM for Material Number {{matnr}}
         <br>
       </div>
@@ -45,6 +62,8 @@
     </td>
     </tr>
     </table>
+
+
 
 
 

@@ -7,6 +7,10 @@
 
 # dependencies
 /node_modules
+/nodejs/node_modules
+/backend/node_modules
+/backend3
+
 
 # IDEs and editors
 /.idea

@@ -1,0 +1,51 @@
+
+  <input type="file" name="photo" accept=".jpg" ng2FileSelect [uploader]="uploader" />
+  <mat-spinner *ngIf='isLoading'></mat-spinner>
+  <button type="button" class="btn btn-success btn-s"
+    (click)="upload()"
+    [disabled]="!uploader.getNotUploadedItems().length" >
+        Upload an Image
+  </button>
+  <button type="button" class="btn btn-success btn-s"  (click)="refresh()">
+    Refresh    {{displayMsg}}
+</button>
+
+ <br>
+ <br>
+
+  <div *ngIf="uploader.getNotUploadedItems().length">
+     <img [src]="sanitizer.bypassSecurityTrustUrl(localImageUrl)" style="width:500px;height:500px"  >
+ </div>
+
+<div ng-controller="autoRefreshApp">
+<div ng-app='autoRefreshController'  style="width:100%" >
+  <table style="width:10%">
+    {{fileName}}
+  <tr>
+    <th>{{res_104}}</th>
+    <th>{{res_162}}</th>
+    <th>{{res_208}}</th>
+    <th>{{res_500}}</th>
+  </tr>
+  <tr>
+    <td>
+     <img src ="{{f_104}}" alt="image104"   style="width:104px;height:104px"  >
+   </td>
+    <td>
+      <img src="{{f_162}}" alt ="image162" style="width:162px;height:162px"  >
+    </td>
+    <td>
+      <img src="{{f_208}}" alt ="image208"  style="width:208px;height:208px"  >
+    </td>
+
+    <td>
+      <img src="{{f_500}}" alt ="image500" style="width:500px;height:500px"  >
+     </td>
+  </tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+
+

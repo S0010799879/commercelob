@@ -1,19 +1,34 @@
 
   <input type="file" name="photo" accept=".jpg" ng2FileSelect [uploader]="uploader" />
   <mat-spinner *ngIf='isLoading'></mat-spinner>
+
   <button type="button" class="btn btn-success btn-s"
     (click)="upload()"
-    [disabled]="!uploader.getNotUploadedItems().length" >
+    [disabled]="!upload_disable()"  >
         Upload an Image
   </button>
   <button type="button" class="btn btn-success btn-s"  (click)="refresh()">
     Refresh    {{displayMsg}}
 </button>
- 
- <br>
- <br>
 
-  <div *ngIf="uploader.getNotUploadedItems().length">
+<div *ngIf="uploader.getNotUploadedItems().length" class="column small-12 large-2">
+    <label class="sbw_light">Copy to Azure</label>
+<select  [(ngModel)]="azureCopyType.name"  name="AzureBlob"   (change)="azure_select($event.target.selectedIndex)">
+      <option  *ngFor="let it of azureCopyType; let i=index" 
+        [value] = "D1"
+        [disabled]="!uploader.getNotUploadedItems().length" 
+        [selected]="none">
+        {{it.name}}
+      </option>
+     </select>
+</div>
+
+
+
+    <br>
+    <br> 
+   
+ <div *ngIf="uploader.getNotUploadedItems().length">
      <img [src]="sanitizer.bypassSecurityTrustUrl(localImageUrl)" style="width:500px;height:500px"  >
  </div>
 

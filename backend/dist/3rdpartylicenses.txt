@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-zone.js@0.8.26
+zone.js@0.9.1
 MIT
 The MIT License
 
@@ -91,15 +91,15 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@angular/animations@6.1.10
+@angular/animations@8.0.2
 MIT
 MIT
 
-@angular/cdk@7.2.0
+@angular/cdk@8.0.1
 MIT
 The MIT License
 
-Copyright (c) 2018 Google LLC.
+Copyright (c) 2019 Google LLC.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -119,31 +119,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/common@6.1.10
+@angular/common@8.0.2
 MIT
 MIT
 
-@angular/compiler@6.1.10
+@angular/compiler@8.0.2
 MIT
 MIT
 
-@angular/core@6.1.10
+@angular/core@8.0.2
 MIT
 MIT
 
-@angular/forms@6.1.10
+@angular/forms@8.0.2
 MIT
 MIT
 
-@angular/platform-browser-dynamic@6.1.10
+@angular/platform-browser-dynamic@8.0.2
 MIT
 MIT
 
-@angular/platform-browser@6.1.10
+@angular/platform-browser@8.0.2
 MIT
 MIT
 
-@angular/router@6.1.10
+@angular/router@8.0.2
 MIT
 MIT
 
@@ -196,7 +196,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-rxjs@6.3.3
+rxjs@6.5.2
 Apache-2.0
 Apache License
                          Version 2.0, January 2004

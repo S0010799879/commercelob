@@ -1,16 +1,22 @@
 import { Component, OnInit , OnDestroy} from '@angular/core';
 import { CommercepicService } from './../../commercepic.service';
+import { HttpClient, HttpClientModule, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pim',
   templateUrl: './pim.component.html',
   styleUrls: ['./pim.component.css']
+
 })
 
 export class PimComponent implements OnInit, OnDestroy {
 
-  constructor(public comService: CommercepicService) { };
-
+  constructor(public comService: CommercepicService , public http: HttpClient) { };
+  firstName:string;
+  lastName:string;
   matnr: string;
   host = 'https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global';
 
@@ -28,17 +34,23 @@ export class PimComponent implements OnInit, OnDestroy {
  imgPic: String [] = [];
  imgDraw: String [] = [];
 
+ httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': "image/jpeg",
+    'Access-Control-Allow-Origin': '*'
 
+  })
+};
 
   ngOnInit() {
 
     this.comService.getmatFunUpdateListener()
                    .subscribe((funNr: string) => {
-              this.matnr = funNr;
-              this._setPimUrl () ;
-             // alert( 'FunNr subscripbe' + funNr);
+                    this.matnr = funNr;
+                    this._setPimUrl () ;
                  });
-           this.matnr = this.comService.getMatFun();
+           this.matnr = "122.0374.690" ; // this.comService.getMatFun();
+
            this._setPimUrl();
       }
 
@@ -46,13 +58,36 @@ export class PimComponent implements OnInit, OnDestroy {
 
       loadPim(matnr){
 
-            this.matnr = matnr.trim();
             this._setPimUrl();
 
       }
       ngOnDestroy() {
 
 
+
+      }
+      _submit(f) {
+        console.log(f)
+
+      }
+
+
+      setMatnr (cid) {
+
+        console.log ("CID   " + cid)
+      }
+r
+
+
+     _check_Pim( f) {
+      let url =  this.host +  '&article=' + this.matnr + '&type=10030&res=' + this.resPic[0] + '&usage=em';
+      console.log(url);
+      this.http.get(url, this.httpOptions).subscribe((resultBlob: Blob) => {
+        let downloadURL = URL.createObjectURL(resultBlob);
+
+      //  window.open(downloadURL);
+
+      })
 
       }
 
@@ -68,6 +103,4 @@ export class PimComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-
 

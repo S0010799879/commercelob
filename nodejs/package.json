@@ -1,0 +1,31 @@
+{
+  "name": "commerce",
+  "version": "1.0.0",
+  "description": "commerce Test cripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "commerce_test"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "4.17.1",
+    "fs": "0.0.1-security",
+    "json-query": "^2.2.2",
+    "json_query": "^1.0.0",
+    "jsonpath": "^1.0.2",
+    "node-rest-client": "^3.1.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.19"
+  },
+  "keywords": [
+    "commerce_test"
+  ],
+  "author": "Anton Lütte",
+  "license": "ISC"
+}
