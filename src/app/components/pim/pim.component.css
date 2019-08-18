@@ -32,6 +32,19 @@ td:empty{
   width: 100%;
 }
 .example-button-row button,
+
 .example-button-row a {
   margin-right: 8px;
 }
+.button-group {
+  display: flex;
+}
+
+.button-group button {
+  font-size: 4rem;
+  border: 0;
+  float: left;
+  padding: 20px;
+  background: #eee;
+}
+

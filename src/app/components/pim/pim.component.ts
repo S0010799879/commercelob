@@ -1,9 +1,10 @@
 import { Component, OnInit , OnDestroy} from '@angular/core';
 import { CommercepicService } from './../../commercepic.service';
-import { HttpClient, HttpClientModule, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders, HttpErrorResponse, HttpParams  } from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-pim',
@@ -18,8 +19,9 @@ export class PimComponent implements OnInit, OnDestroy {
   firstName:string;
   lastName:string;
   matnr: string;
-  host = 'https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global';
-
+  pimok:String;
+  host =   'https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global';
+  URLPim = 'http://localhost:3000/api/down/pim';
  resPic: String[] = ['10091', '10092', '10090', '10088', '10086'];
  resDraw: String[] = ['10263', '10264'];
 
@@ -57,15 +59,11 @@ export class PimComponent implements OnInit, OnDestroy {
 
 
       loadPim(matnr){
-
-            this._setPimUrl();
-
+           this._setPimUrl();
       }
+
       ngOnDestroy() {
-
-
-
-      }
+     }
       _submit(f) {
         console.log(f)
 
@@ -76,22 +74,27 @@ export class PimComponent implements OnInit, OnDestroy {
 
         console.log ("CID   " + cid)
       }
-r
 
 
-     _check_Pim( f) {
-      let url =  this.host +  '&article=' + this.matnr + '&type=10030&res=' + this.resPic[0] + '&usage=em';
-      console.log(url);
-      this.http.get(url, this.httpOptions).subscribe((resultBlob: Blob) => {
-        let downloadURL = URL.createObjectURL(resultBlob);
+   _check_Pim( f) {
 
-      //  window.open(downloadURL);
+    let params = new HttpParams();
+        params = params.append('image', this.matnr);
+        params = params.append('responseType', 'text');
 
-      })
+      console.log(this.URLPim);
+      this.http.get(this.URLPim,{params:params}).subscribe(res => {
+        console.log(res)
+        var info=JSON.parse(JSON.stringify(res));
+        console.log(info)
+        console.log(info.status);
+
+
+
+
+       }) ;
 
       }
-
-
 
       _setPimUrl () {
     let i;

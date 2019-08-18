@@ -11,13 +11,13 @@
                           id=  "ssmatnr"
                           #smatnr="ngModel"
                           matInput placeholder="Enter Fun code" >
-    </mat-form-field>
+     </mat-form-field>
   </div>
-  <div class="example-button-row">
-     <button  mat-raised-button color= "primary" *ngIf="smatnr.valid"    (click)="loadPim(f)" >load Pim</button>
+  <div class="example-button-row ">
+     <button class="button-group"    color= "primary" *ngIf="smatnr.valid"    (click)="loadPim(f)" >load Pim</button>
  </div>
- <div class="example-button-row">
-     <button  mat-raised-button color= "primary" *ngIf="smatnr.valid"    (click)="_check_Pim(f)" >Check Pim</button>
+ <div class="example-button-row ">
+     <button class="button-group"    color= "primary" *ngIf="smatnr.valid"    (click)="_check_Pim(f)" >to Commerce</button>
  </div>
 <br>
 <br>

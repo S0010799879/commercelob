@@ -7,7 +7,7 @@ spawn = require('child_process').spawnSync;
 
 data = JSON.parse(JSON.stringify(model));
 
-//D1 
+//D1
 var blobServiceD1 = azure.createBlobService('wd5rgzcw5v5bdpwsc4jlrgv', 'q/4YVkKZDkHhWfiOD3xVcHkg8dz8Ynbzduti6uFWePkl3TGW7qQ5MnFIfuc6rDA7WyiZ90ZC3YxJ09mvHIe5+w==');
 
 //S1
@@ -22,8 +22,9 @@ exports.convertFile = async function (image, upload, p) {
    if (upload) {
 
       for (i = 0; i < 4; i++) {
+         console.log(" IMAGE" + data.pathSrc + image)
          let convert = spawn('magick', ['convert', data.pathSrc + image, '-strip', '-resize', data.resolution[i], data.pathServer + data.localDir[i] + image])
-        
+
          console.log('convert  ' + data.resolution[i] + ' ' + data.pathSrc + image + '==>' + data.pathServer + data.localDir[i] + image)
          console.log(convert)
       }
@@ -33,7 +34,7 @@ exports.convertFile = async function (image, upload, p) {
       for (i = 0; i < 4; i++) {
 
          filename = image.replace('.jpg', '') + '_' + data.localDir[i].replace('\\', '') + '.jpg'
-         console.log('Filename' + filename)
+         console.log('Filename: ' + filename)
 
          // blobService.createBlockBlobFromLocalFile('hybris','master/hotfolder/'+ data.azurePath[i] + image, data.pathServer + data.localDir[i] + image, function(error, result, response) {
          if (p == 'D1' || p == 'All') {

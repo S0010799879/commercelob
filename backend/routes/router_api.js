@@ -8,11 +8,15 @@ var fs = require('fs')
 var url =require('url')
 var Promise = require('promise');
 const ma=require('../controllers/testMail')
+var request = require("request")
+var rp = require("request-promise")
+var image=require("../controllers/cv")
 // Hört auf /test
+
 var data =JSON.parse( JSON.stringify(model));
 
 const DIR = data.pathSrc
-
+const hotFolder= data.pathHot
 
 
 let storage = multer.diskStorage({
@@ -24,7 +28,6 @@ let storage = multer.diskStorage({
       cb(null, file.originalname);
     }
 });
-
 
 
 let upload = multer({storage: storage});
@@ -82,7 +85,7 @@ if (!req.file) {
     });
 
   } else {
-   // console.log(req.file)
+   console.log("OrgName " +  req.file.originalname)
    var y= lconverter(req.file.originalname,false,'none')
    var x= lconverter(req.file.originalname,true)
           //  converter.convertFile(req.file.originalname,true)
@@ -256,6 +259,37 @@ router.get("/api/down", (req, res, next) => {
     }
  });
 })
+
+
+
+var download = function(uri, filename, callback){
+  request.head(uri, function(err, res, body){
+  console.log('content-type:', res.headers['content-type']);
+  console.log('content-length:', res.headers['content-length']);
+
+  request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+  });
+  };
+
+
+router.get("/api/down/pim", (req, res, next) => {
+   var query = url.parse(req.url,true).query;
+   pic = query.image;
+   console.log("[GET/down/pim] ==> Filename " + pic)
+  strUrl="https://onepim-content.franke.com/api/public/c4c/?division=10005&organizationalUnits=global&article="+ pic+"&type=10030&res=10091&usage=em"
+
+    filename = pic.replace('.','').replace('.','')+".jpg"
+    console.log(filename)
+   console.log(strUrl)
+
+     download  (strUrl,DIR+filename,function(){
+       console.log('done')
+      // var y= lconverter(filename,false,'none')
+       var x= lconverter(filename,true,'All')
+
+      })
+     })
+
 
 router.get("/api/mail", (req, res, next) => {
     console.log('mailer')
